@@ -1,0 +1,77 @@
+.b_trending_container{
+    position: relative;
+    background-color: #1F132C;
+    width: 100vw;
+    /* height: 100vh; */
+    /* z-index: -2; */
+}
+
+.b_trending_guitargirl{
+    height: 85%;
+    position: absolute;
+    top: -10%;
+    /* z-index: -1; */
+}
+
+.b_trending_events{
+width: 60%;
+margin: auto;
+}
+
+/* -----------------------------Responsive----------------------------- */
+
+@media (min-width: 320px) and (max-width: 480px) {
+    
+    .b_trending_events{
+        width: 80%;
+        }
+
+        .b_trending_guitargirl{
+            height: 100%;
+            top: -20%;
+            left: -10%;
+        }
+    
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+    
+    .b_trending_events{
+        width: 80%;
+        }
+
+        .b_trending_guitargirl{
+            height: 100%;
+            top: -20%;
+            left: -10%;
+        }
+    
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    
+    .b_trending_events{
+        width: 80%;
+        }
+
+        .b_trending_guitargirl{
+            height: 100%;
+            top: -20%;
+            left: -10%;
+        }
+
+}
+
+@media (min-width: 768px) and (max-width: 1024px){
+    
+    .b_trending_events{
+        width: 80%;
+        }
+
+        .b_trending_guitargirl{
+            height: 100%;
+            top: -20%;
+            left: -10%;
+        }
+
+}

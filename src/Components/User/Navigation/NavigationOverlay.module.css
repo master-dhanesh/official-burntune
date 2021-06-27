@@ -1,0 +1,123 @@
+.b_navover_container{
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 91%;
+    height: 55%;
+    transform: scale(1.2);
+    background-image: url('/src/assets/NavOverlay.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    padding: 20% 0  0  7%;
+    z-index: 1111;
+}
+
+
+
+
+.b_navover_section1{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    width: 25%;
+    height: 100%;
+}
+
+.b_navover_section1 div{
+   margin-bottom: 7em;    
+}
+
+.b_navover_section1 img{
+    height: 2em
+
+}
+
+.b_navover_section2{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    height: 100%;
+    color: #626262;
+}
+
+.b_loginimg{
+    height: 1.5em;
+}
+.b_loginbutton{
+    color: #D93F87;
+    font-size: 1em;
+    border: none;
+    padding: .5em 2.4em ;
+    margin-right: 1em;
+    background: transparent;
+}
+
+.b_nav_card{
+    display:flex;
+    width: 100%;
+    margin-left: 1em;
+}
+.b_nav_card img{
+    height: 4em;
+    width: 4em;
+    background-position: center;
+    background-size: cover;
+    border-radius: 50%;
+}
+
+.b_nav_card div{
+    padding-left: 1em;
+    width: 70%;
+}
+
+.b_nav_card h1{
+    font-weight: 100;
+    font-size: 2em;
+    line-height: 0;
+}
+
+.b_nav_card p{
+    font-size: 1em;
+}
+
+.b_nav_card span{
+    color: #68C2DE;
+}
+
+/* -------------------------Responsive------------------------------------ */
+/* @media (min-width: 450px) and (max-width: 480px) {
+    
+    .b_parent_container{
+        font-size: 7px;
+
+    } 
+    
+  } */
+
+  @media (min-width: 320px) and (max-width: 350px) {
+    
+    .b_navover_container{
+        height: 70%;
+    }
+    
+  }
+
+  @media (min-width: 350px) and (max-width: 517px) {
+    
+    .b_navover_container{
+        height: 65%;
+        width: 90.5%;
+    }
+    
+  }
+
+  @media (min-width: 517px) and (max-width: 768px) {
+    
+    .b_navover_container{
+        height: 90%;
+    }
+    
+  }

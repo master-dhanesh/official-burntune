@@ -1,0 +1,105 @@
+.b_alumni_container{
+    font-family: 'Open Sans', sans-serif;
+    position: relative;
+    background-color: #1F132C;
+    width: 100vw;
+    z-index: 1000;
+    /* height: 100vh; */
+}
+
+.b_alumni_heading{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 50;
+    font-size: 3em;
+    text-align: center;
+}
+.b_alumini_cards{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: start;
+}
+
+.b_alumni_card{
+    background-image: url(/src/assets/dummy1.jpg);
+    background-position: center;
+    background-size: cover;
+    width: 30%;
+}
+
+.b_alumni_card_heading{
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.62em ;
+    font-weight: normal;
+}
+
+.b_alumni_card_para{
+    font-size: .7em;
+}
+
+.b_alumni_card_overlay{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 0, 0, 0.7);
+}
+
+.b_alumni_sideimg{
+    position: absolute;
+    height: 100%;
+    right: -10%;
+    top: 0%;
+    z-index: -1;
+}
+
+/* -----------------------------Responsive----------------------------- */
+
+@media (min-width: 320px) and (max-width: 480px) {
+    
+    .b_alumni_card{
+        width: 100%;
+    }
+
+    .b_alumni_sideimg{
+        right: -30%;
+    }
+    
+  }
+
+  @media (min-width: 481px) and (max-width: 767px) {
+    
+    .b_alumni_card{
+        margin: auto;
+        width: 80%;
+    }
+
+    .b_alumni_sideimg{
+        right: -10%;
+    }
+    
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    
+    .b_alumni_card{
+        margin: auto;
+        width: 50%;
+    }
+
+    .b_alumni_sideimg{
+        right: -30%;
+    }
+
+}
+
+@media (min-width: 768px) and (max-width: 1024px){
+    
+    .b_alumni_card{
+        margin: auto;
+        width: 50%;
+    }
+
+    .b_alumni_sideimg{
+        right: -30%;
+    }
+
+}

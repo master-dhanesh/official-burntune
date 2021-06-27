@@ -1,0 +1,34 @@
+.b_loginimg{
+    height: 1.5em;
+}
+.b_loginbutton{
+    color: inherit;
+    font-size: 1em;
+    border: none;
+    padding: .5em 2.4em ;
+    margin-right: 1em;
+    background: transparent;
+}
+
+.b_transbutton{
+    color: inherit;
+    background: transparent;
+    background-image: url(/src/assets/nonbgbutton.png);
+    background-size: cover;
+    background-position: 0%;
+    font-size: 1em;
+    border: none;
+    padding: .5em 2.4em ;
+    border-radius: 5em;
+}
+
+.b_navelements{
+    display: flex;
+    align-items: center;
+}
+
+.b_nav_container{
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Open Sans', sans-serif;
+}

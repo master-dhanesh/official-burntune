@@ -1,0 +1,7 @@
+.b_navoverlay_container{
+    overflow:hidden !important;
+}
+
+.b_navoverlay_display{
+    transition: .25s all ease-in-out;
+}
