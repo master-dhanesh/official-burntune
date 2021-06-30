@@ -7,13 +7,15 @@ import leanpub from '../../../assets/leanpub.png';
 import usersolid from '../../../assets/usersolid.png';
 import loginlogo from '../../../assets/login-pink.png';
 import dummy1 from '../../../assets/dummy1.jpg';
+import burntune from '../../../assets/burntunelogowhite.png';
 
 function NavigationOverlay(props) {    
     return (
         <div className={css.b_navover_container} >
             <section className={css.b_navover_section1}>
                 <div><img onClick={props.NavHideHandler} src={hbs} alt={hbs} /></div>
-                <div>LOGO</div>
+                <div><img style={{height: '4em'}} src={burntune} alt={burntune}/>
+</div>
                 <div><img src={leanpub} alt={leanpub} /></div>
                 <div><img src={usersolid} alt={usersolid} /></div>
             </section>
