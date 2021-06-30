@@ -1,12 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import dummy1 from '../../.././../assets/dummy1.jpg';
-import dummy2 from '../../.././../assets/dummy2.jpg';
-import dummy3 from '../../.././../assets/dummy3.jpg';
+import poster1 from '../../.././../assets/posters/poster1.png';
+import poster2 from '../../.././../assets/posters/poster2.png';
+import poster3 from '../../.././../assets/posters/poster3.png';
 
 import css from './LatestEvents.module.css';
 
 function LatestEvents() {
+  const [poster] = useState([
+    {image: poster3, title: 'Creative Workshops', desc: 'Interactive lessons on music, Tuesday & Friday 5PM IST | Sunday 1PM IST '},
+    {image: poster2, title: 'Podcasts with Influencers', desc: 'Weekly Videos & Live  Broadcasts, Tips from professionals amd budding artists in the industry. '},
+    {image: poster1, title: 'Song Writing Sessions', desc: 'Music is an art, write songs with us and let\'s see what we can create, Weekends@ 10PM'},
+  ])
+
+  let posterList = '';
+  if(poster.length > 0) {
+    posterList = poster.map((p,i) => (
+      <div key={i} className={`carousel-item ${i===0 ? 'active' : ''}`}>
+      <img style={{filter: 'brightness(60%)'}} src={p.image} className={`${css.b_latestevents_slideimage} d-block w-100`} alt={p.image} />
+      <div className="carousel-caption d-none d-md-block">
+        <h5 className={css.b_latestevents_slideimage_heading} >{p.title}</h5>
+        <p>{p.desc}</p>
+      </div>
+    </div>
+    ))
+  }
     return (
         <div id="carouselExampleCaptions" className={`${css.b_latestevents_container} carousel slide`} data-bs-ride="carousel">
         <div className="carousel-indicators">
@@ -15,27 +33,7 @@ function LatestEvents() {
           <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
         <div className="carousel-inner">
-          <div className="carousel-item active">
-            <img src={dummy1} className={`${css.b_latestevents_slideimage} d-block w-100`} alt={dummy1} />
-            <div className="carousel-caption d-none d-md-block">
-              <h5 className={css.b_latestevents_slideimage_heading} >First slide label</h5>
-              <p>Some representative placeholder content for the first slide.</p>
-            </div>
-          </div>
-          <div className="carousel-item">
-          <img src={dummy2} className={`${css.b_latestevents_slideimage} d-block w-100`} alt={dummy2}   />
-            <div className="carousel-caption d-none d-md-block">
-              <h5 className={css.b_latestevents_slideimage_heading} >Second slide label</h5>
-              <p>Some representative placeholder content for the second slide.</p>
-            </div>
-          </div>
-          <div className="carousel-item">
-          <img src={dummy3} className={`${css.b_latestevents_slideimage} d-block w-100`}alt={dummy3} />
-            <div className="carousel-caption d-none d-md-block">
-              <h5 className={css.b_latestevents_slideimage_heading}>Third slide label</h5>
-              <p>Some representative placeholder content for the third slide.</p>
-            </div>
-          </div>
+          {posterList}
         </div>
         <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
           <span className="carousel-control-prev-icon" aria-hidden="true"></span>

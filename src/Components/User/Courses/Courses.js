@@ -13,10 +13,7 @@ function Courses() {
       </h1>
       <br />
       <p className={css.b_courses_para}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit
-        tenetur, voluptas odit, explicabo soluta laborum earum ipsam eveniet
-        quaerat amet veritatis ipsum, libero voluptate? Doloribus quasi quis
-        quae praesentium eum! Lorem ipsum dolor sit amet.
+      Choose an instrument or just your voice to start an unforgettable journey as you begin your journey in learning Music with us
       </p>
       <br /> <br />
 

@@ -32,9 +32,9 @@ function Homepage() {
 
             <div className={css.b_links_scroll}>
                <div className={` ${css.b_links_scroll_hidden} d-flex flex-column`}>
-                    <a className="mb-2" href=""><img src={instalogo} alt={instalogo} /></a>
-                   <a className="mb-2"href=""><img src={fblogo} alt={fblogo} /></a>
-                   <a href=""><img src={inlogo} alt={inlogo} /></a>
+                <a rel="noreferrer" target="_blank" className="mb-2" href="https://www.instagram.com/burntune/"><img src={instalogo} alt={instalogo} /></a>
+                <a rel="noreferrer" target="_blank" className="mb-2" href="https://www.facebook.com/burntunemusic"><img src={fblogo} alt={fblogo} /></a>
+                <a rel="noreferrer" target="_blank" href="https://www.linkedin.com/company/burntune"><img src={inlogo} alt={inlogo} /></a>
                </div>
 
                 <div className="d-flex flex-column justify-content-end align-items-center">

@@ -51,15 +51,15 @@ function Footer() {
                 <div className={`${css.b_footer_section2_B} p-5`}>
                     <h6 className={css.b_footer_subheading}>STAY TUNED</h6>
                     <h1 className={css.b_footer_links}>
-                        <a title="Facebook" href='#'><img  className={css.b_footer_link_logo} src={fb}  alt={fb} /></a>
-                        <a title="Instagram" href='#'><img  className={css.b_footer_link_logo} src={ins} alt={ins} /></a>
-                        <a title="LinkedIn" href='#'><img  className={css.b_footer_link_logo} src={ln}  alt={ln} /></a>
-                        <a title="Youtube" href='#'><img  className={css.b_footer_link_logo} src={yt}  alt={yt} /></a>
-                        <a title="Twitter" href='#'><img  className={css.b_footer_link_logo} src={tw}  alt={tw} /></a>
-                        <a title="Clubhouse" href='#'><img  className={css.b_footer_link_logo} style={{height:'24px'}} src={ch}  alt={ch} /></a>
+                        <a rel="noreferrer" target="_blank" title="Facebook" href='https://www.facebook.com/burntunemusic'><img  className={css.b_footer_link_logo} src={fb}  alt={fb} /></a>
+                        <a rel="noreferrer" target="_blank" title="Instagram" href='https://www.instagram.com/burntune/'><img  className={css.b_footer_link_logo} src={ins} alt={ins} /></a>
+                        <a rel="noreferrer" target="_blank" title="LinkedIn" href='https://www.linkedin.com/company/burntune'><img  className={css.b_footer_link_logo} src={ln}  alt={ln} /></a>
+                        <a rel="noreferrer" target="_blank" title="Youtube" href='https://www.youtube.com/channel/UCxPzr_ZIe9_7LNEw3ZWChbw?reload=9'><img  className={css.b_footer_link_logo} src={yt}  alt={yt} /></a>
+                        <a rel="noreferrer" target="_blank" title="Twitter" href='https://twitter.com/burntunemusic'><img  className={css.b_footer_link_logo} src={tw}  alt={tw} /></a>
+                        <a rel="noreferrer" target="_blank" title="Clubhouse" href='https://clubhouse.com/club/burntune-music-spectrum'><img  className={css.b_footer_link_logo} style={{height:'24px'}} src={ch}  alt={ch} /></a>
                     </h1>
                     <p className={css.b_footer_dev}>
-                    BY<a href="#">@master.dhanesh</a> | <a href="#">@sheryians_coding_school</a>
+                    BY<a rel="noreferrer" target="_blank" href="https://www.instagram.com/master.dhanesh/">@master.dhanesh</a> | @sheryians_coding_school
                     </p>
                 </div>
             </section>

@@ -1,0 +1,22 @@
+.b_cards_image{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.b_cards_title{
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5em;
+    /* font-weight: 50; */
+}
+
+.b_cards_desc{
+    font-family: 'Open Sans', sans-serif;
+    font-size: .8em;
+}
+
+.b_cards_desc1{
+    font-family: 'Open Sans', sans-serif;
+    font-size: .7em;
+    font-weight: bold;
+}

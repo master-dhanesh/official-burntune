@@ -17,7 +17,7 @@
     width: 80%;
     margin: auto;
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
 }
 
 .b_alumni_card{
