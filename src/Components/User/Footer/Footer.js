@@ -49,7 +49,7 @@ function Footer() {
                     <p className={css.b_footer_copyright}>© 2021 BURNTUNE. All Rights reserved</p>
                 </div>
                 <div className={`${css.b_footer_section2_B} p-5`}>
-                    <h6 className={css.b_footer_subheading}>STAY TUNED</h6>
+                    <h6 className={css.b_footer_subheading}>FOLLOW US</h6>
                     <h1 className={css.b_footer_links}>
                         <a rel="noreferrer" target="_blank" title="Facebook" href='https://www.facebook.com/burntunemusic'><img  className={css.b_footer_link_logo} src={fb}  alt={fb} /></a>
                         <a rel="noreferrer" target="_blank" title="Instagram" href='https://www.instagram.com/burntune/'><img  className={css.b_footer_link_logo} src={ins} alt={ins} /></a>

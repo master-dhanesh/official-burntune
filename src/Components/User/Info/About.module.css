@@ -1,0 +1,100 @@
+.b_login_container{
+    font-family: 'Open Sans', sans-serif;
+    width: 100vw;
+    background-color: #120B1A;
+    overflow: hidden;
+}
+
+.b_login_Navigation{
+    padding: 1em;
+}
+
+.b_login_section{
+    background-color: #ffffff;
+    width: 100%;
+}
+
+.b_about_header{
+    background-color: #8265A7;
+    width: 100%;
+    padding: 10em 0;
+    text-align: center;
+}
+
+.b_about_heading{
+    font-weight: 50;
+    font-size: 4em;
+    font-family: 'Roboto', sans-serif;
+    line-height: .5em;
+}
+
+.b_about_subheading{
+    font-weight: 600;
+    font-size: 1.5em;
+}
+
+.b_about_content{
+    color: #000;
+}
+
+.b_about_profile {
+    margin: auto;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    transform: translateY(-50%);
+}
+
+.b_about_image{
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: blur(1px);
+    transition: .25s all linear;
+}
+
+.b_about_image:hover{
+    transform: scale(2);
+    filter: blur(0px);
+
+}
+
+
+
+/* -------------------------------------Responsive---------------------------- */
+
+@media (min-width: 320px) and (max-width: 480px) {
+    .b_about_profile{
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+    
+   
+    .b_about_profile{
+        width: 120px;
+        height: 120px;
+    }
+    
+  }
+
+  @media (min-width: 767px) and (max-width: 1024px) and (orientation: landscape) {
+    .b_about_profile{
+        width: 130px;
+        height: 130px;
+    }
+    
+  }
+
+  @media (min-width: 767px) and (max-width: 1024px){
+    
+    .b_about_profile{
+        width: 120px;
+        height: 120px;
+    }
+    
+  }

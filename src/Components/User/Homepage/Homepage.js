@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 
 import instalogo from '../../../assets/instalogo.png';
 import fblogo from '../../../assets/fblogo.png';
@@ -10,6 +11,7 @@ import css from './Homepage.module.css';
 import Courses from '../Courses/Courses';
 
 function Homepage() {
+    const history = useHistory();
     return (
         <div className={css.b_homepage_container}>
 
@@ -24,8 +26,13 @@ function Homepage() {
                             with BURNTUNE
                         </span> </h1>
                         <br />
-                    <button className={css.b_bgbutton}>Signup</button>
-                    {(window.innerWidth < 768) ? "" : <button className={css.b_transbutton}>&nbsp;More&nbsp; </button> }
+                    <button 
+                        onClick={() => history.push('/users/register')}
+                        className={css.b_bgbutton}>Signup</button>
+                    {(window.innerWidth < 768) ? "" : 
+                    <button 
+                        onClick={() => history.push('/users/about')}
+                        className={css.b_transbutton}>&nbsp;More&nbsp; </button> }
                     
                 </div>
             </div>
