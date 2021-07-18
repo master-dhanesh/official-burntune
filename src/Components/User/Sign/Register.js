@@ -1,4 +1,5 @@
 import React from 'react';
+import {  Link } from 'react-router-dom';
 import Footer from '../Footer/Footer';
 import Navigation from '../Navigation/Navigation';
 
@@ -48,7 +49,7 @@ function Register() {
                         </a> 
                         <small className="text-dark">
                             Already have an account? &nbsp;
-                            <a href="/register">Login</a>
+                            <Link to="/users/login">Login</Link>
                         </small>
                     </div>
                 </div>

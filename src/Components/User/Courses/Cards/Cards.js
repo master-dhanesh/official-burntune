@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { Link } from 'react-router-dom';
 import Slider from "react-slick";
 
 import css from "./Cards.module.css";
@@ -84,7 +85,12 @@ function Cards() {
             alt={c.image}
           />
           <div className="card-body">
-            <h5 className={`${css.b_cards_title} card-title`}>{c.title}</h5>
+            <h5 className={`${css.b_cards_title} card-title`}>
+            <Link  to={`/users/card/${c.title}`}>
+            <span className="text-dark"> {c.title}</span>
+             
+            </Link>
+            </h5>
             <p className={`${css.b_cards_desc} card-text`}>{c.desc}</p>
             <p className={`${css.b_cards_desc1} card-text`}>{c.desc1}</p>
             {/* <a href="#" className="btn btn-primary">

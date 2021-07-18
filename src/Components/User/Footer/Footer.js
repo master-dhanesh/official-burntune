@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 import css from './Footer.module.css';
 import arrowButton from '../../../assets/arrowButton.png';
@@ -10,6 +11,7 @@ import fb from '../../../assets/facebooklogo.png';
 import ins from '../../../assets/instagramlogo.png';
 
 function Footer() {
+    const location = useLocation();
     return (
         <div className={css.b_footer_container}>
             
@@ -21,7 +23,7 @@ function Footer() {
                         <h1 className={css.b_footer_heading}>PARTNER WITH US</h1>
                     </div>
                     <div>
-                    <a href='#' className={css.b_footer_button}><img src={arrowButton} alt={arrowButton} /></a>
+                    <Link to={`${location.pathname}/work-together`} className={css.b_footer_button}><img src={arrowButton} alt={arrowButton} /></Link>
                     </div>
                 </div>
                 <div className={`${css.b_footer_section1_B} p-5`}>
@@ -31,7 +33,7 @@ function Footer() {
                         <h1 className={css.b_footer_heading}>WORK WITH US</h1>
                     </div>
                     <div>
-                        <a href='#' className={css.b_footer_button}><img src={arrowButton} alt={arrowButton} /></a>
+                        <Link to={`${location.pathname}/join-team`} className={css.b_footer_button}><img src={arrowButton} alt={arrowButton} /></Link>
                     </div>
                 </div>
             </section>
@@ -42,7 +44,7 @@ function Footer() {
                         <h6 className={css.b_footer_subheading}>STAY TUNED</h6>
                         <div className={css.b_footer_input_container}>
                             <input className={css.b_footer_input} type="email" placeholder="YOUR EMAIL"  />
-                            <a href='#' className={css.b_footer_button}><img src={arrowButton} alt={arrowButton} /></a>
+                            <button onClick={() => window.alert('Email send')} className={css.b_footer_button}><img src={arrowButton} alt={arrowButton} /></button>
                         </div>
                     </div>
                     
@@ -59,7 +61,7 @@ function Footer() {
                         <a rel="noreferrer" target="_blank" title="Clubhouse" href='https://clubhouse.com/club/burntune-music-spectrum'><img  className={css.b_footer_link_logo} style={{height:'24px'}} src={ch}  alt={ch} /></a>
                     </h1>
                     <p className={css.b_footer_dev}>
-                    BY<a rel="noreferrer" target="_blank" href="https://www.instagram.com/master.dhanesh/">@master.dhanesh</a> | @sheryians_coding_school
+                    BY <a rel="noreferrer" target="_blank" href="https://www.instagram.com/master.dhanesh/">@master.dhanesh</a> | @sheryians_coding_school
                     </p>
                 </div>
             </section>

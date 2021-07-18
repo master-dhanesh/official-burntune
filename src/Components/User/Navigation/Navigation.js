@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 
 
 import css from './Navigation.module.css';
@@ -20,7 +20,7 @@ function Navigation() {
     return <div>
     {(!(window.innerWidth < 768) ) ?  
         <div className={css.b_nav_container}>
-            <div><img style={{height: '3em'}} src={burntune} alt={burntune}/></div>
+            <Link to="/"><img style={{height: '3em'}} src={burntune} alt={burntune}/></Link>
             <div className={css.b_navelements} >
                 <button
                     onClick={() => history.push('/users/login')} 

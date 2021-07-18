@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 import css from './NavigationOverlay.module.css'
 
@@ -14,19 +15,20 @@ function NavigationOverlay(props) {
         <div className={css.b_navover_container} >
             <section className={css.b_navover_section1}>
                 <div><img onClick={props.NavHideHandler} src={hbs} alt={hbs} /></div>
-                <div><img style={{height: '4em'}} src={burntune} alt={burntune}/>
-</div>
-                <div><img src={leanpub} alt={leanpub} /></div>
+                <div> <Link to="/">
+                    <img style={{height: '4em'}} src={burntune} alt={burntune}/>
+                </Link></div>
+                <div> <Link to="/users/about"><img src={leanpub} alt={leanpub} /> </Link></div>
                 <div><img src={usersolid} alt={usersolid} /></div>
             </section>
             
             <section className={css.b_navover_section2}>
             <div className="d-flex justify-content-end">
-            <button className={css.b_loginbutton}>
+            <Link to="/users/login" className={css.b_loginbutton}>
                 <img src={loginlogo} className={css.b_loginimg} alt={loginlogo} />
                 &nbsp;
                 Login
-            </button>
+            </Link>
             </div>
             <br />
             <div>
