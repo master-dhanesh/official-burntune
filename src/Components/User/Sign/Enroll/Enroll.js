@@ -76,7 +76,7 @@ function Enroll() {
                         <br />
 
                         <small className="text-dark">
-                            Go to <span className="text-primary" onClick={() => history.goBack()} >Back</span> | <Link className="text-decoration-none" to="/users">Home</Link>
+                            Go to <span className="text-primary" onClick={() => history.goBack()} >Back</span> | <Link className="text-decoration-none" to="/">Home</Link>
                         </small>
 
                     </div>

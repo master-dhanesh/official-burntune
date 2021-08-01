@@ -5,14 +5,19 @@ import 'bootstrap/dist/js/bootstrap.bundle.js';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import App from './App';
+import { Provider } from 'react-redux';
+import store from './Store';
+
 import reportWebVitals from './reportWebVitals';
 
 import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.render(
+  <Provider store={store}> 
   <BrowserRouter>
     <App />
-  </BrowserRouter>,
+  </BrowserRouter>
+  </Provider>, 
   document.getElementById('root')
 );
 

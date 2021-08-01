@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import css from './Footer.module.css';
 import arrowButton from '../../../assets/arrowButton.png';
@@ -11,7 +11,6 @@ import fb from '../../../assets/facebooklogo.png';
 import ins from '../../../assets/instagramlogo.png';
 
 function Footer() {
-    const location = useLocation();
     return (
         <div className={css.b_footer_container}>
             
@@ -23,7 +22,7 @@ function Footer() {
                         <h1 className={css.b_footer_heading}>PARTNER WITH US</h1>
                     </div>
                     <div>
-                    <Link to={`${location.pathname}/work-together`} className={css.b_footer_button}><img src={arrowButton} alt={arrowButton} /></Link>
+                    <Link to="/business/work-together" className={css.b_footer_button}><img src={arrowButton} alt={arrowButton} /></Link>
                     </div>
                 </div>
                 <div className={`${css.b_footer_section1_B} p-5`}>
@@ -33,7 +32,7 @@ function Footer() {
                         <h1 className={css.b_footer_heading}>WORK WITH US</h1>
                     </div>
                     <div>
-                        <Link to={`${location.pathname}/join-team`} className={css.b_footer_button}><img src={arrowButton} alt={arrowButton} /></Link>
+                        <Link to="/business/join-team" className={css.b_footer_button}><img src={arrowButton} alt={arrowButton} /></Link>
                     </div>
                 </div>
             </section>

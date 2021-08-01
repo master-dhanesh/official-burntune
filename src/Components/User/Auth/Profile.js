@@ -1,12 +1,16 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import Footer from '../Footer/Footer';
 import Navigation from '../Navigation/Navigation';
 
 import dummy3 from '../../../assets/dummy2.jpg';
 import css from './Profile.module.css';
+import { Redirect } from 'react-router';
 
 function Profile() {
-    return (
+    const { isUser } = useSelector((state) => state.userReducer);
+   
+    return isUser ?  (
         <div className={css.b_login_container}>
         <div className={css.b_login_Navigation}>
             <Navigation />
@@ -34,7 +38,7 @@ function Profile() {
         </section>
         <Footer />
         </div>
-    )
+    ) : <Redirect to="/login" />
 }
 
 export default Profile

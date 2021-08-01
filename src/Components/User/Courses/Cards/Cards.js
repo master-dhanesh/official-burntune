@@ -78,7 +78,7 @@ function Cards() {
   if (card.length > 0) {
     cardList = card.map((c, i) => (
       <div key={i}>
-        <div className="card" style={{ width: "18rem" }}>
+        <div className="card" style={{ width: "18rem", height: "23rem", overflow: "hidden" }}>
           <img
             className={`${css.b_cards_image} card-img-top`}
             src={c.image}
@@ -86,7 +86,7 @@ function Cards() {
           />
           <div className="card-body">
             <h5 className={`${css.b_cards_title} card-title`}>
-            <Link  to={`/users/card/${c.title}`}>
+            <Link  to={`/card/${c.title}`}>
             <span className="text-dark"> {c.title}</span>
              
             </Link>

@@ -27,11 +27,11 @@ function Homepage() {
                         </span> </h1>
                         <br />
                     <button 
-                        onClick={() => history.push('/users/register')}
+                        onClick={() => history.push('/login')}
                         className={css.b_bgbutton}>Signup</button>
                     {(window.innerWidth < 768) ? "" : 
                     <button 
-                        onClick={() => history.push('/users/about')}
+                        onClick={() => history.push('/about')}
                         className={css.b_transbutton}>&nbsp;More&nbsp; </button> }
                     
                 </div>

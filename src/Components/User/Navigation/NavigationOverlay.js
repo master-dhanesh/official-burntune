@@ -18,13 +18,13 @@ function NavigationOverlay(props) {
                 <div> <Link to="/">
                     <img style={{height: '4em'}} src={burntune} alt={burntune}/>
                 </Link></div>
-                <div> <Link to="/users/about"><img src={leanpub} alt={leanpub} /> </Link></div>
+                <div> <Link to="/about"><img src={leanpub} alt={leanpub} /> </Link></div>
                 <div><img src={usersolid} alt={usersolid} /></div>
             </section>
             
             <section className={css.b_navover_section2}>
             <div className="d-flex justify-content-end">
-            <Link to="/users/login" className={css.b_loginbutton}>
+            <Link to="/login" className={css.b_loginbutton}>
                 <img src={loginlogo} className={css.b_loginimg} alt={loginlogo} />
                 &nbsp;
                 Login
