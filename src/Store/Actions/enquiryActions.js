@@ -1,7 +1,7 @@
 import { firestore } from '../../helpers/FirebaseConfiguration';
-import nodeMailer from 'nodemailer';
+import emailjs from 'emailjs-com';
 
-export const RegisteringEnquiry = (EnquiryDetails) => dispatch => {
+export const RegisteringEnquiry = (EnquiryDetails, e) => dispatch => {
     const date = new Date();
     const timestamp = `${date.toLocaleDateString()} ${date.toLocaleTimeString()}`;
     EnquiryDetails.timestamp = timestamp;
@@ -9,29 +9,18 @@ export const RegisteringEnquiry = (EnquiryDetails) => dispatch => {
     firestore.collection("enquiry").add(EnquiryDetails)
         .then(() => {
             console.log("User Enquiry Registered!");
-            SendMail(EnquiryDetails);
+            SendMail(e);
         })
         .catch((error) => {
             console.log(error);
         });
 }
 
-export const SendMail = (details) => {
-    let transporter = nodeMailer.createTransport({
-        service: 'gmail',
-        auth: {
-            user: 'dhanesh1296@gmail.com',
-            pass: 'Master51198@'
-        }
-    });
-    let mailOptions = {
-        from: '"BURNTUNE" <burntune@gmail.com>', // sender address
-        to: "dhanesh1296@gmail.com", // list of receivers
-        subject: details.type, // Subject line
-        text: JSON.stringify(details)
-    };
-    transporter.sendMail(mailOptions, (error, info) => {
-        if (error) return console.log(error);
-        console.log(info);
+export const SendMail = (e) => {
+    emailjs.sendForm('service_pskonc9', 'template_j50gm3h', e, 'user_KaXHuQnx8fmbUs7wBjC6y')
+    .then((result) => {
+        console.log(result.text);
+    }, (error) => {
+        console.log(error.text);
     });
 }

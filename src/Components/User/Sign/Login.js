@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import Footer from '../Footer/Footer';
 import Navigation from '../Navigation/Navigation';
 
-import { SigninUser } from '../../../Store/Actions';
+import { SigninUser, SigninUserEmail } from '../../../Store/Actions';
 import css from './Login.module.css';
 import boy1 from '../../../assets/boy1.png';
 import email from '../../../assets/email.png';
@@ -14,10 +14,21 @@ import googlelogo from '../../../assets/googlelogo.png';
 function Login() {
     const dispatch = useDispatch();
     const history = useHistory();
-    const SignInUser = async () => {
-            dispatch(await SigninUser());
-            history.push('/auth/profile');
+
+    const SignInUser = () => {
+        dispatch(SigninUser(history));
     }
+
+    const SubmitHandler = (e) => {
+        e.preventDefault();
+        console.log('click')
+        e.preventDefault();
+        let email = e.target.email.value;
+        let password = e.target.password.value;
+        const LoginDetails = { email, password };
+        dispatch(SigninUserEmail(LoginDetails, history));
+    }
+
     return (
         <div className={css.b_login_container}>
             <div className={css.b_login_Navigation}>
@@ -28,7 +39,6 @@ function Login() {
                 <div className={css.b_login_img}>
                     <img src={boy1} alt={boy1} />
                 </div>
-
 
                 <div className={css.b_login_content}>
                     <div>
@@ -47,9 +57,42 @@ function Login() {
                             </span>
                         </button>
 
-                        <div className={css.b_login_filler}></div>
 
-                        <div className={`invisible ${css.b_login_bottom}`}>
+                        <div className=" d-flex w-100 justify-content-between align-items-center">
+                            <hr style={{ width: '45%' }} className="bg-dark text-dark" />
+                            <span className="text-dark">OR</span>
+                            <hr style={{ width: '45%' }} className="bg-dark text-dark" />
+                        </div>
+
+                        <form onSubmit={SubmitHandler}>
+
+                            <div className="mb-3">
+                                <input
+                                    required
+                                    type="email"
+                                    name="email"
+                                    className="form-control"
+                                    placeholder="EM@IL" />
+                            </div>
+
+                            <div className="mb-3">
+                                <input
+                                    minLength={8}
+                                    required
+                                    type="password"
+                                    name="password"
+                                    className="form-control"
+                                    placeholder="PASSWORD" />
+                            </div>
+
+
+                            <button type="submit" className="btn btn-outline-primary">Login</button>
+
+                        </form>
+
+                        {/* <div className={css.b_login_filler}></div> */}
+
+                        <div className={` ${css.b_login_bottom}`}>
                             <a className="invisible text-dark text-decoration-none d-flex justify-content-start align-items-center "
                                 href="/email">
                                 <img height={15} src={email} alt={email} />
@@ -58,7 +101,7 @@ function Login() {
                             </a>
                             <small className="text-dark">
                                 Don't have an account? &nbsp;
-                                <Link to="/register">Register</Link>
+                                <Link to="/register/no-instrument">Register</Link>
                             </small>
                         </div>
                     </div>

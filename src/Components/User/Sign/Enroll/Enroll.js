@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useLocation, useHistory } from 'react-router-dom';
+import { Link, useLocation, useHistory, useParams } from 'react-router-dom';
 import Footer from '../../Footer/Footer';
 import Navigation from '../../Navigation/Navigation';
 
@@ -9,6 +9,7 @@ import boy1 from '../../../../assets/boy1.png';
 function Enroll() {
     const location = useLocation();
     const history = useHistory();
+    const params = useParams();
     return (
         <div className={css.b_login_container}>
             <div className={css.b_login_Navigation}>
@@ -32,15 +33,15 @@ function Enroll() {
 
 
                         <ol className="list-group list-group-numbered">
-                        
+
                             <li className={`${css.shadow} list-group-item d-flex justify-content-between align-items-start`}>
                                 <div className="ms-2 me-auto">
                                     <div className={`${css.roboto} fw-bold`}>
-                                    <Link  to={`${location.pathname}/free`}>
-                                        <span className="text-dark">Learn Free</span> 
+                                    <Link  to={`/register/${params.instrument}`}>
+                                        <span className="text-dark">Join The Program</span> 
                                         </Link>
                                     </div>
-                                    <span className={css.opensans}> You'll get free content from open source website/channels</span>
+                                    <span className={css.opensans}>Enroll for the Membership Program to start learning Music</span>
                                    
                                 </div>
                                 {/* <span className="badge bg-primary rounded-pill">14</span> */}
@@ -50,23 +51,10 @@ function Enroll() {
                                 <div className="ms-2 me-auto">
                                     <div className={`${css.roboto} fw-bold`}>
                                     <Link  to={`${location.pathname}/trial`}>
-                                        <span className="text-dark">Trial Session</span> 
+                                        <span className="text-dark">Book a Free Trial</span> 
                                         </Link>
                                     </div>
-                                    <span className={css.opensans}>Get our trial session to know more about us</span>
-                                   
-                                </div>
-                                {/* <span className="badge bg-primary rounded-pill">14</span> */}
-                            </li>
-
-                            <li className={`${css.shadow} list-group-item d-flex justify-content-between align-items-start`}>
-                                <div className="ms-2 me-auto">
-                                    <div className={`${css.roboto} fw-bold`}>
-                                    <Link  to={`${location.pathname}/paid`}>
-                                        <span className="text-dark">Join Our Course</span> 
-                                        </Link>
-                                    </div>
-                                    <span className={css.opensans}> Enroll in our course and start wonderfull journey with us</span>
+                                    <span className={css.opensans}>Meet us for an Online Session to test the Learning Experience at Burntune</span>
                                    
                                 </div>
                                 {/* <span className="badge bg-primary rounded-pill">14</span> */}

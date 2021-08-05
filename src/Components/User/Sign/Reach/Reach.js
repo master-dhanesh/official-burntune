@@ -25,7 +25,8 @@ function Reach() {
         if(history.location.pathname.match('/business')){
             delete enquiry.instrument;
         }
-        dispatch(RegisteringEnquiry(enquiry));
+        dispatch(RegisteringEnquiry(enquiry, e.target));
+        // e.target.reset();
     }
     return (
         <div className={css.b_login_container}>
@@ -71,13 +72,18 @@ function Reach() {
 
                                 <div className="mb-3">
                                     <input
-                                        minLength="10"
+                                        pattern="\d*"
+                                        minLength={10}
+                                        maxLength={12}
                                         required 
                                         type="text"
                                         name="contact" 
                                         className="form-control" 
                                         placeholder="(country code)CONTACT" />
                                 </div>
+
+                                <input readOnly hidden name="message" value="Sit tight we'll contact you soon." type="text" />
+                                <input readOnly hidden name="subject" value={`Enquiry regarding ${subject} classes`} type="text" />
 
 
                                 <button type="submit" className="btn btn-outline-primary">Submit</button>

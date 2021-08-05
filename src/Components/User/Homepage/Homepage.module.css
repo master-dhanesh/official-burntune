@@ -22,9 +22,18 @@
     background-position: left;
     font-size: 1em;
     border: none;
-    padding: .5em 2.4em ;
+    padding: 1em 2.4em ;
     border-radius: 5em;
     margin-right: 1em;
+}
+
+.dropdown_item_li{
+    font-size: 1em;
+    background: linear-gradient(#9C40C8, #4673F1);
+}
+
+.dropdown_item_hover:hover{
+    color: rgb(39, 39, 39) !important;
 }
 
 .b_transbutton{

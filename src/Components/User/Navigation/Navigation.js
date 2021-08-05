@@ -9,14 +9,14 @@ import loginlogo from '../../../assets/loginlogo.png';
 
 import burntune from '../../../assets/burntunelogowhite.png';
 
-function Navigation() {
+function Navigation(props) {
     const history = useHistory();
     const dispatch = useDispatch();
     const { isUser, user } = useSelector((state) => state.userReducer);
 
+
     const UserLogout = () => {
-        dispatch(SignOut());
-        history.push('/login');
+        dispatch(SignOut(history));
     }
 
     return <div>
@@ -44,7 +44,7 @@ function Navigation() {
                                     &nbsp;
                                     Login
                                 </button>
-                                <button className={css.b_transbutton}>Join Us</button>
+                                <button onClick={props.callRef} className={css.b_transbutton}>Join Us</button>
                             </>
                     }
 

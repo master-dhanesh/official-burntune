@@ -77,7 +77,7 @@ function Cards() {
   let cardList = "";
   if (card.length > 0) {
     cardList = card.map((c, i) => (
-      <div key={i}>
+      <Link to={`/card/${c.title}`} className={css.b_cards_highlight} key={i}>
         <div className="card" style={{ width: "18rem", height: "23rem", overflow: "hidden" }}>
           <img
             className={`${css.b_cards_image} card-img-top`}
@@ -86,10 +86,10 @@ function Cards() {
           />
           <div className="card-body">
             <h5 className={`${css.b_cards_title} card-title`}>
-            <Link  to={`/card/${c.title}`}>
+           
             <span className="text-dark"> {c.title}</span>
              
-            </Link>
+           
             </h5>
             <p className={`${css.b_cards_desc} card-text`}>{c.desc}</p>
             <p className={`${css.b_cards_desc1} card-text`}>{c.desc1}</p>
@@ -98,7 +98,7 @@ function Cards() {
         </a> */}
           </div>
         </div>
-      </div>
+      </Link>
     ));
   }
 

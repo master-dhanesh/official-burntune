@@ -1,0 +1,19 @@
+.b_login_container{
+    font-family: 'Open Sans', sans-serif;
+    width: 100vw;
+    background-color: #120B1A;
+    overflow: hidden;
+}
+
+.b_login_Navigation{
+    padding: 1em;
+}
+
+.b_login_section{
+    background-color: #ffffff;
+    width: 100%;
+}
+
+.b_about_content{
+    color: #000;
+}

@@ -9,10 +9,11 @@ import ln from '../../../assets/linkedinlogo.png';
 import ch from '../../../assets/clubhouselogo.png';
 import fb from '../../../assets/facebooklogo.png';
 import ins from '../../../assets/instagramlogo.png';
+import Spotify from '../../../assets/Spotify-logo.png';
 
-function Footer() {
+function Footer(props) {
     return (
-        <div className={css.b_footer_container}>
+        <div ref={props.refHook} className={css.b_footer_container}>
             
             <section className={`${css.b_footer_section1}`}>
                 <div className={`${css.b_footer_section1_A} p-5`}>
@@ -47,7 +48,10 @@ function Footer() {
                         </div>
                     </div>
                     
-                    <p className={css.b_footer_copyright}>© 2021 BURNTUNE. All Rights reserved</p>
+                    <p className={css.b_footer_copyright}>
+                        © 2021 Burntune Music and Media Pvt Ltd. All Rights reserved &nbsp;
+                        <Link className="text-light text-decoration-none" to="/tnc">Terms & Conditions</Link>
+                        </p>
                 </div>
                 <div className={`${css.b_footer_section2_B} p-5`}>
                     <h6 className={css.b_footer_subheading}>FOLLOW US</h6>
@@ -57,6 +61,7 @@ function Footer() {
                         <a rel="noreferrer" target="_blank" title="LinkedIn" href='https://www.linkedin.com/company/burntune'><img  className={css.b_footer_link_logo} src={ln}  alt={ln} /></a>
                         <a rel="noreferrer" target="_blank" title="Youtube" href='https://www.youtube.com/channel/UCxPzr_ZIe9_7LNEw3ZWChbw?reload=9'><img  className={css.b_footer_link_logo} src={yt}  alt={yt} /></a>
                         <a rel="noreferrer" target="_blank" title="Twitter" href='https://twitter.com/burntunemusic'><img  className={css.b_footer_link_logo} src={tw}  alt={tw} /></a>
+                        <a rel="noreferrer" target="_blank" title="Spotify" href='https://open.spotify.com/show/0vo6IyS9S56Evi5WEUIM8K'><img  className={css.b_footer_link_logo} src={Spotify}  alt={Spotify} /></a>
                         <a rel="noreferrer" target="_blank" title="Clubhouse" href='https://clubhouse.com/club/burntune-music-spectrum'><img  className={css.b_footer_link_logo} style={{height:'24px'}} src={ch}  alt={ch} /></a>
                     </h1>
                     <p className={css.b_footer_dev}>
