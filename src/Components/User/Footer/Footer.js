@@ -19,7 +19,7 @@ function Footer(props) {
                 <div className={`${css.b_footer_section1_A} p-5`}>
                     <div></div>
                     <div>
-                        <h6 className={css.b_footer_subheading}>WANT TO WORK TOGETHER</h6>
+                        <h6 className={css.b_footer_subheading}>LET'S COLLABORATE</h6>
                         <h1 className={css.b_footer_heading}>PARTNER WITH US</h1>
                     </div>
                     <div>
@@ -29,8 +29,8 @@ function Footer(props) {
                 <div className={`${css.b_footer_section1_B} p-5`}>
                     <div></div>
                     <div>
-                        <h6 className={css.b_footer_subheading}>JOIN THE TEAM</h6>
-                        <h1 className={css.b_footer_heading}>WORK WITH US</h1>
+                        <h6 className={css.b_footer_subheading}>BURNTUNE CAREERS</h6>
+                        <h1 className={css.b_footer_heading}>JOIN THE TEAM</h1>
                     </div>
                     <div>
                         <Link to="/business/join-team" className={css.b_footer_button}><img src={arrowButton} alt={arrowButton} /></Link>
