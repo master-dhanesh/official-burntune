@@ -17,7 +17,8 @@ export const RegisteringEnquiry = (EnquiryDetails, e) => dispatch => {
 }
 
 export const SendMail = (e) => {
-    emailjs.sendForm('service_pskonc9', 'template_j50gm3h', e, 'user_KaXHuQnx8fmbUs7wBjC6y')
+    // emailjs.sendForm('service_pskonc9', 'template_j50gm3h', e, 'user_KaXHuQnx8fmbUs7wBjC6y')
+    emailjs.sendForm('service_q3rusqi', 'template_x4wl77h', e, 'user_BEqlI6qI93gbir74xXnOh')
     .then((result) => {
         console.log(result.text);
     }, (error) => {

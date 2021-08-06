@@ -1,6 +1,6 @@
 .b_latestevents_container{
     font-family: 'Open Sans', sans-serif;
-    height: 29rem;
+    height: auto;
 } 
 
 .b_latestevents_slideimage{
@@ -12,3 +12,4 @@
 .b_latestevents_slideimage_heading{
     font-family: 'Roboto', sans-serif;
 }
+

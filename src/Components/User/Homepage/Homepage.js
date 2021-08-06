@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 import instalogo from '../../../assets/instalogo.png';
 import spotify from '../../../assets/spotify.png';
-import fblogo from '../../../assets/fblogo.png';
 import inlogo from '../../../assets/inlogo.png';
 import downarrowlogo from '../../../assets/DownArrowlogo.png';
 

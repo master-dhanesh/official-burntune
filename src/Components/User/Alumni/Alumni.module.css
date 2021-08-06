@@ -21,8 +21,7 @@
 }
 
 .b_alumni_card{
-    background-image: url(/src/assets/dummy1.jpg);
-    background-position: center;
+    background-position: top;
     background-size: cover;
     width: 30%;
 }

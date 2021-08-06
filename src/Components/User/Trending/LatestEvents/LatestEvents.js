@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
-import poster1 from '../../.././../assets/posters/poster1.png';
-import poster2 from '../../.././../assets/posters/poster2.png';
-import poster3 from '../../.././../assets/posters/poster3.png';
+import poster1 from '../../.././../assets/posters/poster1.jpg';
+import poster2 from '../../.././../assets/posters/poster2.jpg';
+import poster3 from '../../.././../assets/posters/poster3.jpg';
 
 import css from './LatestEvents.module.css';
 

@@ -1,5 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { SignOut } from '../../../Store/Actions';
 
 import css from './NavigationOverlay.module.css'
 
@@ -7,10 +9,19 @@ import hbs from '../../../assets/hbs.png';
 import leanpub from '../../../assets/leanpub.png';
 import usersolid from '../../../assets/usersolid.png';
 import loginlogo from '../../../assets/login-pink.png';
-import dummy1 from '../../../assets/dummy1.jpg';
+import FoundersPic from '../../../assets/FoundersPic.jpeg';
 import burntune from '../../../assets/burntunelogowhite.png';
 
 function NavigationOverlay(props) {
+
+    const history = useHistory();
+    const dispatch = useDispatch();
+    const { isUser } = useSelector((state) => state.userReducer);
+
+    const UserLogout = () => {
+        dispatch(SignOut(history));
+    }
+
     return (
         <div className={css.b_navover_container} >
             <section className={css.b_navover_section1}>
@@ -24,16 +35,30 @@ function NavigationOverlay(props) {
 
             <section className={css.b_navover_section2}>
                 <div className="d-flex justify-content-end">
-                    <Link to="/login" className={css.b_loginbutton}>
+
+                {
+                        !isUser ? 
+                        <Link to="/login" className={css.b_loginbutton}>
                         <img src={loginlogo} className={css.b_loginimg} alt={loginlogo} />
                         &nbsp;
                         Login
-                    </Link>
+                    </Link> : 
+                    <span onClick={UserLogout} className={css.b_loginbutton}>
+                        <img src={loginlogo} className={css.b_loginimg} alt={loginlogo} />
+                        &nbsp;
+                        Logout
+                    </span>
+                        
+                }
+
+                    
+
+
                 </div>
                 <br />
                 <div>
                     <div className={css.b_nav_card}>
-                        <img src={dummy1} alt={dummy1} />
+                        <img src={FoundersPic} alt={FoundersPic} />
                         <div>
                             <h1>Daniel Hogg</h1>
                             <p> <span>Founder & Chief Executive Officer of Burntune Music and Media Pvt. Ltd.</span>  <br />
