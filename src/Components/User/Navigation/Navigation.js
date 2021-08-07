@@ -2,10 +2,12 @@ import React from 'react';
 import { useHistory, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
+
 import { SignOut } from '../../../Store/Actions';
 import css from './Navigation.module.css';
 import MobileNavigation from './MobileNavigation';
 import loginlogo from '../../../assets/loginlogo.png';
+import noimage from '../../../assets/noimage.png';
 
 import burntune from '../../../assets/burntunelogowhite.png';
 
@@ -29,7 +31,7 @@ function Navigation(props) {
                             <>
                                 <div className="dropdown ">
                                     <button className="p-0 btn bg-transparent dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                       <img className="rounded-circle" src={user.photoURL} height="40" alt={user.photoURL} />
+                                       <img className="rounded-circle" src={(user.photoURL && user.photoURL) || noimage } height="40" alt={user.photoURL} />
                                     </button>
                                     <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                         <li><span className="dropdown-item" onClick={UserLogout}>Logout</span></li>

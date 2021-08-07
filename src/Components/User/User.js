@@ -5,6 +5,8 @@ import { Switch, Route, Redirect, } from 'react-router-dom';
 import { RestoreSession } from '../../Store/Actions';
 import css from './User.module.css';
 
+import Admin from '../Admin/Admin';
+
 import About from './Info/About';
 import Login from './Sign/Login';
 import Register from './Sign/Register';
@@ -18,8 +20,16 @@ import TnC from './TnC/TnC';
 
 
 function User() {
-    const {isUser} = useSelector(state => state.userReducer);
-    console.log(isUser)
+    const {isUser, error} = useSelector(state => state.userReducer);
+    // console.log(isUser)
+
+    const AdminPath = () => {
+        let today = new Date();
+        let dd = String(today.getDate()).padStart(2, '0');
+        let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        let yyyy = today.getFullYear();
+        return mm+dd+yyyy;
+      }
 
     const dispatch = useDispatch();
     useEffect(() => {
@@ -28,7 +38,11 @@ function User() {
 
     return (
         <div className={css.b_user_container}>
+
+            <Route exact path={`/admin/${AdminPath()}`} component={Admin} />
+
             <Switch>
+                { error ? <Route render ={ () => <h1>Something Went Wrong</h1>} />: ''}
                 { isUser ? <Redirect from="/login" to="/auth/profile" />: ''}
                 { isUser ? <Redirect from="/register" to="/auth/profile" />: ''}
                 <Route exact path="/auth/profile" component={Profile} /> 

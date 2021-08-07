@@ -6,7 +6,7 @@ import css from "./Courses.module.css";
 
 function Courses() {
   return (
-    <div className={css.b_courses_container}>
+    <div id="scroll_cards" className={css.b_courses_container}>
       <h1 className={css.b_courses_heading}>
         Collaborative learning with
         <span className="fw-normal"> creative folks like you</span>

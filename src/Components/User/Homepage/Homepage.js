@@ -33,7 +33,7 @@ function Homepage(props) {
                                 Start Learning
                             </button>
                             <ul className={`dropdown-menu p-0 ${css.dropdown_item_li}`}>
-                                <li><Link className={`p-3 text-white dropdown-item ${css.dropdown_item_hover}`} to="/register">Let's Start</Link></li>
+                                <li><Link className={`p-3 text-white dropdown-item ${css.dropdown_item_hover}`} to="">Let's Start</Link></li>
                                 <li><hr className="m-0 bg-light dropdown-divider" /></li>
                                 <li><Link className={`p-3 text-white dropdown-item ${css.dropdown_item_hover}`} to="/about">More</Link></li>
                             </ul>

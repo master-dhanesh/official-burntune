@@ -3,7 +3,7 @@ import Footer from '../Footer/Footer';
 import Navigation from '../Navigation/Navigation';
 
 import css from './About.module.css';
-import dummy3 from '../../../assets/dummy2.jpg';
+import dummy3 from '../../../assets/FoundersPic.jpeg';
 
 
 function Login() {
@@ -29,7 +29,7 @@ function Login() {
                     <h4 className="text-center">Daniel Hogg</h4>
                     <h6 className="text-muted text-center">Founder & Chief Executive Officer of <br /> Burntune Music and Media Pvt. Ltd.</h6>
 
-                    <p className="w-75 m-auto mt-5">
+                    <div className="w-75 m-auto mt-5">
                         <h4> <u>Vision</u> </h4>
                         At Burntune, we believe that you, the human being is the center of  all
                         creativity and the same should be nurtured with Art and Music.
@@ -58,11 +58,11 @@ function Login() {
                         <br /><br />
                         But the passionate and ambitious few at Burntune can come from
                         anywhere!
-                    </p>
+                    </div>
 
 
                     <br />
-                    <p className="w-75 m-auto mt-5">
+                    <div className="w-75 m-auto mt-5">
                         <h4> <u>Founder’s Message</u> </h4>
                         Ever since I was a young boy, I struggled to find a way to put my Songs out
                         into the world, but never had the right guidance or economic support to
@@ -88,7 +88,7 @@ function Login() {
                             Truly yours, <br />
                             <strong>Daniel Hogg</strong>
                         </p>
-                    </p>
+                    </div>
 
                 </div>
                 <br /><br />

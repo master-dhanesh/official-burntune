@@ -10,6 +10,9 @@ import css from '../Login.module.css';
 import boy1 from '../../../../assets/boy1.png';
 import { useDispatch } from 'react-redux';
 
+import emailjs from 'emailjs-com';
+
+
 function Reach() {
     const history = useHistory();
     const dispatch = useDispatch();
@@ -18,15 +21,24 @@ function Reach() {
 
     const SubmitHandler = (e) => {
         e.preventDefault();
+
+        emailjs.sendForm('service_q3rusqi', 'template_x4wl77h', e.target, 'user_BEqlI6qI93gbir74xXnOh')
+        .then((result) => {
+            console.log(result.text);
+            e.target.reset();
+        }, (error) => {
+            console.log(error.text);
+        });
+
         let name = e.target.name.value;
-        let email = e.target.email.value;
-        let contact = e.target.contact.value;
-        const enquiry = { name, email, contact, instrument, type: subject };
-        if(history.location.pathname.match('/business')){
-            delete enquiry.instrument;
-        }
-        dispatch(RegisteringEnquiry(enquiry, e.target));
-        // e.target.reset();
+            let email = e.target.email.value;
+            let contact = e.target.contact.value;
+            const enquiry = { name, email, contact, instrument, type: subject };
+            if(history.location.pathname.match('/business')){
+                delete enquiry.instrument;
+            }
+            dispatch(RegisteringEnquiry(enquiry,history));
+        
     }
     return (
         <div className={css.b_login_container}>

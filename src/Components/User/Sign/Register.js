@@ -58,7 +58,7 @@ function Register() {
                             <img height={30} src={googlelogo} alt={googlelogo} />
                             &nbsp;&nbsp;
                             <span>
-                                Sign in with Google
+                                Sign up with Google
                             </span>
                         </button>
 

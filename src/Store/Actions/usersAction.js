@@ -7,11 +7,11 @@ import { firebase, provider, firestore } from '../../helpers/FirebaseConfigurati
 
 
 export const UpdateUser = (UpdatedUser) => dispatch => {
-    const { displayName, email, instrument, phoneNumber, photoURL, timestamp, trial } = UpdatedUser;
+    const { displayName, email, instrument, phoneNumber, photoURL, timestamp } = UpdatedUser;
     firestore
         .collection('users')
         .doc(UpdatedUser._id)
-        .set({ displayName, email, instrument, phoneNumber, photoURL, timestamp, trial });
+        .set({ displayName, email, instrument, phoneNumber, photoURL, timestamp });
          RestoreSession();
 }
 
@@ -46,7 +46,7 @@ export const SigninUser = (instrument, history) => dispatch => {
                 const { displayName, photoURL, email, phoneNumber } = result.user;
                 const date = new Date();
                 const timestamp = `${date.toLocaleDateString()} ${date.toLocaleTimeString()}`;
-                const userDetails = { displayName, photoURL, email, phoneNumber, instrument, timestamp, trial: false };
+                const userDetails = { displayName, photoURL, email, phoneNumber, instrument, timestamp };
 
                 firestore.collection("users").get().then((querySnapshot) => {
                     let regusers = querySnapshot.docs.map(doc => ({ ...doc.data(), _id: doc.id }));
@@ -83,7 +83,7 @@ export const RegisterNewUser = (newUser) => dispatch => {
             const { photoURL, email, phoneNumber } = user;
             const date = new Date();
             const timestamp = `${date.toLocaleDateString()} ${date.toLocaleTimeString()}`;
-            const userDetails = { displayName: name, photoURL, email, phoneNumber, instrument, timestamp, trial: false };
+            const userDetails = { displayName: name, photoURL, email, phoneNumber, instrument, timestamp };
 
 
             firestore.collection("users").get().then((querySnapshot) => {

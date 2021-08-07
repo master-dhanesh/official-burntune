@@ -1,5 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+
+import { useDispatch } from 'react-redux';
+import emailjs from 'emailjs-com';
+
+
+import { RegisteringEnquirySubs } from '../../../Store/Actions/enquiryActions';
 
 import css from './Footer.module.css';
 import arrowButton from '../../../assets/arrowButton.png';
@@ -12,8 +18,30 @@ import ins from '../../../assets/instagramlogo.png';
 import Spotify from '../../../assets/Spotify-logo.png';
 
 function Footer(props) {
+    const history = useHistory();
+    const dispatch = useDispatch()
+
+    const subject = "subscribe";
+
+    const SendEmail = (e) => {
+        e.preventDefault();
+        console.log(e.target);
+        emailjs.sendForm('service_q3rusqi', 'template_x4wl77h', e.target, 'user_BEqlI6qI93gbir74xXnOh')
+            .then((result) => {
+                console.log(result.text);
+                e.target.reset();
+            }, (error) => {
+                console.log(error.text);
+            });
+
+            const enquiry = { email: e.target.email.value, type: "subscribe" };
+            dispatch(RegisteringEnquirySubs(enquiry,history));
+
+        
+    }
+
     return (
-        <div ref={props.refHook} className={css.b_footer_container}>
+        <div id="scroll_footer" className={css.b_footer_container}>
             
             <section className={`${css.b_footer_section1}`}>
                 <div className={`${css.b_footer_section1_A} p-5`}>
@@ -42,10 +70,13 @@ function Footer(props) {
                 <div className={`${css.b_footer_section2_A} p-5`}>
                     <div>
                         <h6 className={css.b_footer_subheading}>STAY TUNED</h6>
-                        <div className={css.b_footer_input_container}>
-                            <input className={css.b_footer_input} type="email" placeholder="YOUR EMAIL"  />
-                            <button onClick={() => window.alert('Email send')} className={css.b_footer_button}><img src={arrowButton} alt={arrowButton} /></button>
-                        </div>
+                        <form onSubmit={SendEmail} className={css.b_footer_input_container}>
+                            <input className={css.b_footer_input} name="email" type="email" placeholder="YOUR EMAIL"  />
+                            <input readOnly hidden name="message" value="Thankyou so much for the subscription, We'll keep you updated." type="text" />
+                            <input readOnly hidden name="name" value="buddy" type="text" />
+                            <input readOnly hidden name="subject" value={`Enquiry regarding ${subject} classes`} type="text" />
+                            <button className={css.b_footer_button}><img src={arrowButton} alt={arrowButton} /></button>
+                        </form>
                     </div>
                     
                     <p className={css.b_footer_copyright}>

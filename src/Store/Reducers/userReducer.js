@@ -22,7 +22,7 @@ export const userReducer = (state = initState, { type, payload }) => {
         case SIGN_FAIL:
         case SIGN_OUT:
             return {
-                user: [],
+                user: null,
                 isUser: false,
                 error: null,
                 alerts: []

@@ -52,10 +52,11 @@ function Login() {
                         <button onClick={SignInUser}>
                             <img height={30} src={googlelogo} alt={googlelogo} />
                             &nbsp;&nbsp;
-                            <span>
+                            <span title="Go to register and Signup first">
                                 Sign in with Google
                             </span>
                         </button>
+                            <small className="text-danger">Signup with Google First</small>
 
 
                         <div className=" d-flex w-100 justify-content-between align-items-center">
