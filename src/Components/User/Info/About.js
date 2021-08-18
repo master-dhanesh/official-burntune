@@ -3,7 +3,7 @@ import Footer from '../Footer/Footer';
 import Navigation from '../Navigation/Navigation';
 
 import css from './About.module.css';
-import dummy3 from '../../../assets/FoundersPic.jpeg';
+import dummy3 from '../../../assets/FoundersPic1.jpg';
 
 
 function Login() {

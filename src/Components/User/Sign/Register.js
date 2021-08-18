@@ -18,8 +18,8 @@ function Register() {
 
     const RegisterUser = async () => {
         console.log('click')
-        dispatch(await SigninUser(instrument));
-        history.push('/auth/profile');
+        dispatch(await SigninUser(instrument, history));
+        // history.push('/auth/profile');
     }
 
     const SubmitHandler = async (e) => {
@@ -58,7 +58,7 @@ function Register() {
                             <img height={30} src={googlelogo} alt={googlelogo} />
                             &nbsp;&nbsp;
                             <span>
-                                Sign up with Google
+                                Sign in with Google
                             </span>
                         </button>
 

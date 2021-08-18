@@ -13,17 +13,17 @@ function Courses() {
       </h1>
       <br />
       <p className={css.b_courses_para}>
-      Choose an instrument or just your voice to start an unforgettable journey as you begin your journey in learning Music with us
+        Choose an instrument or just your voice to start an unforgettable
+        journey as you begin your journey in learning Music with us
       </p>
       <br /> <br />
-
-        <Cards />
-
+      <Cards />
       <h1 style={{ lineHeight: ".7em" }} className={css.b_courses_heading}>
         Latest @burntune
       </h1>
       <img src={dashlogo} alt={dashlogo} />
-      <br /><br />
+      <br />
+      <br />
     </div>
   );
 }

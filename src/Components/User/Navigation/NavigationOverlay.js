@@ -9,7 +9,7 @@ import hbs from '../../../assets/hbs.png';
 import leanpub from '../../../assets/leanpub.png';
 import usersolid from '../../../assets/usersolid.png';
 import loginlogo from '../../../assets/login-pink.png';
-import FoundersPic from '../../../assets/FoundersPic.jpeg';
+import FoundersPic from '../../../assets/FoundersPic1.jpg';
 import burntune from '../../../assets/burntunelogowhite.png';
 
 function NavigationOverlay(props) {
@@ -30,7 +30,7 @@ function NavigationOverlay(props) {
                     <img style={{ height: '4em' }} src={burntune} alt={burntune} />
                 </Link></div>
                 <div> <Link to="/about"><img src={leanpub} alt={leanpub} /> </Link></div>
-                <div><img src={usersolid} alt={usersolid} /></div>
+                <a href="#emailInp" onClick={props.NavHideHandler} ><img src={usersolid} alt={usersolid} /></a>
             </section>
 
             <section className={css.b_navover_section2}>

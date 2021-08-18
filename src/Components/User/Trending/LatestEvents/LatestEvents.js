@@ -20,8 +20,8 @@ function LatestEvents() {
       <img style={{filter: 'brightness(60%)'}} src={p.image} className={`${css.b_latestevents_slideimage} d-block w-100`} alt={p.image} />
       {/* <div style={{filter: 'brightness(60%)', backgroundImage: `url(${p.image})`}} className={`${css.b_latestevents_slideimage} d-block w-100`}></div> */}
       <div className="carousel-caption d-none d-md-block">
-        <h5 className={css.b_latestevents_slideimage_heading} >{p.title}</h5>
-        <p>{p.desc}</p>
+        {/* <h5 className={css.b_latestevents_slideimage_heading} >{p.title}</h5> */}
+        {/* <p>{p.desc}</p> */}
       </div>
     </div>
     ))

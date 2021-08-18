@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-// import {  displayRazorpay } from '../../../utils/PaymentGateway';
 
 import { UpdateUser } from '../../../Store/Actions';
 import Footer from '../Footer/Footer';
@@ -12,36 +11,49 @@ import css from './Profile.module.css';
 import { Redirect, useHistory } from 'react-router';
 
 function Profile() {
-    const [state, setstate] = useState(false)
+    const { isUser, user } = useSelector((state) => state.userReducer);
+    const UpdatedUserDetails = { ...user };
+
+    const [phoneNumber, setphoneNumber] = useState(null);
+    const [instrument, setinstrument] = useState(null);
     const dispatch = useDispatch();
     const history = useHistory();
 
-    const { isUser, user } = useSelector((state) => state.userReducer);
-    const UpdatedUserDetails = { ...user };
-    // console.log(UpdatedUserDetails);
+
+    useEffect(() => {
+        if(user) setinstrument(user.instrument)
+        if(user) setphoneNumber(user.phoneNumber)
+    }, [user])
+
 
     const SelectInstrument = (e) => {
-        // console.log(e.target.value);
-        UpdatedUserDetails.instrument = e.target.value;
-        dispatch(UpdateUser(UpdatedUserDetails))
-        setstate(!state);
+        e.persist();
+        setinstrument(e.target.value);
     }
 
     const UpdateContact = (e) => {
-        e.preventDefault();
-        // console.log(e.target.phoneNumber.value);
-        UpdatedUserDetails.phoneNumber = e.target.phoneNumber.value;
-        dispatch(UpdateUser(UpdatedUserDetails))
-        setstate(!state);
+        e.persist();
+        setphoneNumber(e.target.value)
+       
     }
 
-    const JoinCourse = (e) => {
+    const SetContact = (e) => {
+        e.preventDefault();
+        console.log(phoneNumber);
+        UpdatedUserDetails.phoneNumber = phoneNumber;
+        dispatch(UpdateUser(UpdatedUserDetails));
+    }
+
+    const JoinCourse = async (e) => {
         e.preventDefault();
 
-        if (user.instrument === 'no-instrument') {
+        UpdatedUserDetails.instrument = instrument;
+        if (instrument === 'no-instrument' || instrument === '' ) {
             return alert('Choose an instrument first...')
+        } else{
+            dispatch(UpdateUser(UpdatedUserDetails));
         }
-        // displayRazorpay(user);
+
         setTimeout(() => {
             history.push('/feedback');
         }, 2000);
@@ -51,7 +63,7 @@ function Profile() {
         <div className={css.b_login_container}>
 
             {(!UpdatedUserDetails.phoneNumber) ? 
-                <form onSubmit={UpdateContact} style={{top: '20%', left: '50%', transform: 'translate(-50%, -50%)'}} className="position-absolute alert alert-danger row g-3 align-items-center">
+                <form onSubmit={SetContact} style={{top: '20%', left: '50%', transform: 'translate(-50%, -50%)', zIndex: '1000'}} className="position-absolute alert alert-danger row g-3 align-items-center">
                     <label htmlFor="Update Contact">Update Contact</label>
                     <div className="col-auto">
                         <input 
@@ -59,7 +71,9 @@ function Profile() {
                             minLength="10"
                             maxLength="12"
                             required
+                            value={phoneNumber}
                             name="phoneNumber"
+                            onChange={UpdateContact}
                             type="text" 
                             pattern="\d*" 
                             className="form-control"/>
@@ -96,7 +110,7 @@ function Profile() {
                             <form onSubmit={JoinCourse}>
                                 <label htmlFor="exampleDataList" className="form-label">Select Course</label>
 
-                                <select onChange={SelectInstrument} name="chooseInstrument" defaultValue={user.instrument === "no-instrument" ? 0 : user.instrument} className="form-control" defaultChecked={user.instrument} >
+                                <select onChange={SelectInstrument} name="chooseInstrument" defaultValue={(user.instrument === "no-instrument" || user.instrument === null) ? 0 : user.instrument} className="form-control" defaultChecked={user.instrument} >
                                     <option value="">Click to select</option>
                                     <option value="Ukelele">Ukelele</option>
                                     <option value="Guitar">Guitar</option>
