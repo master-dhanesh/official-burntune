@@ -14,7 +14,7 @@ function Profile() {
     const { isUser, user } = useSelector((state) => state.userReducer);
     const UpdatedUserDetails = { ...user };
 
-    const [phoneNumber, setphoneNumber] = useState(null);
+    // const [phoneNumber, setphoneNumber] = useState(null);
     const [instrument, setinstrument] = useState(null);
     const dispatch = useDispatch();
     const history = useHistory();
@@ -22,7 +22,7 @@ function Profile() {
 
     useEffect(() => {
         if(user) setinstrument(user.instrument)
-        if(user) setphoneNumber(user.phoneNumber)
+        // if(user) setphoneNumber(user.phoneNumber)
     }, [user])
 
 
@@ -31,18 +31,18 @@ function Profile() {
         setinstrument(e.target.value);
     }
 
-    const UpdateContact = (e) => {
-        e.persist();
-        setphoneNumber(e.target.value)
+    // const UpdateContact = (e) => {
+    //     e.persist();
+    //     setphoneNumber(e.target.value)
        
-    }
+    // }
 
-    const SetContact = (e) => {
-        e.preventDefault();
-        console.log(phoneNumber);
-        UpdatedUserDetails.phoneNumber = phoneNumber;
-        dispatch(UpdateUser(UpdatedUserDetails));
-    }
+    // const SetContact = (e) => {
+    //     e.preventDefault();
+    //     console.log(phoneNumber);
+    //     UpdatedUserDetails.phoneNumber = phoneNumber;
+    //     dispatch(UpdateUser(UpdatedUserDetails));
+    // }
 
     const JoinCourse = async (e) => {
         e.preventDefault();
@@ -62,7 +62,7 @@ function Profile() {
     return isUser ? (
         <div className={css.b_login_container}>
 
-            {(!UpdatedUserDetails.phoneNumber) ? 
+            {/* {(!UpdatedUserDetails.phoneNumber) ? 
                 <form onSubmit={SetContact} style={{top: '20%', left: '50%', transform: 'translate(-50%, -50%)', zIndex: '1000'}} className="position-absolute alert alert-danger row g-3 align-items-center">
                     <label htmlFor="Update Contact">Update Contact</label>
                     <div className="col-auto">
@@ -83,7 +83,7 @@ function Profile() {
                     </div>
                 </form> : 
                 ''
-            }
+            } */}
                 
 
             <div className={css.b_login_Navigation}>

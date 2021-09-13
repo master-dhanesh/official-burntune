@@ -8,7 +8,6 @@ const initState = {
     user: null,
     isUser: false,
     error: null,
-    alerts: []
 };
 
 export const userReducer = (state = initState, { type, payload }) => {
@@ -18,6 +17,7 @@ export const userReducer = (state = initState, { type, payload }) => {
                 ...state,
                 user: payload,
                 isUser: true,
+                error: null
             };
         case SIGN_FAIL:
         case SIGN_OUT:
@@ -25,8 +25,12 @@ export const userReducer = (state = initState, { type, payload }) => {
                 user: null,
                 isUser: false,
                 error: null,
-                alerts: []
             };
+            // case SIGN_FAIL:
+            // return {
+            //     ...state,
+            //     error: payload
+            // };
         default:
             return state;
 

@@ -52,7 +52,11 @@ function Alumni() {
             <div key={i} style={{backgroundImage: `url(${t.image})`}} className={`${css.b_alumni_card}`}>
                 <div style={{ backgroundColor: overlays[Math.floor(Math.random() * overlays.length)] }} className={`${css.b_alumni_card_overlay} d-flex flex-column justify-content-center align-items-center p-5`}>
                     <h2 className={css.b_alumni_card_heading}>{t.name}</h2>
-                    <p className={`${css.b_alumni_card_para} text-center`}>{t.desc}</p>
+                    <p className={`${css.b_alumni_card_para} text-center`}>{t.desc.substr(0,280)}...</p>
+                    {/* <button
+                        type="button"
+                        style={{backgroundColor: overlays[Math.floor(Math.random() * overlays.length)] }} 
+                        className="btn btn-default text-white">More</button> */}
                 </div>
             </div>
         )

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useHistory, useParams } from 'react-router-dom';
-import { SigninUser, RegisterNewUser } from '../../../Store/Actions';
+import { RegisterNewUser } from '../../../Store/Actions';
 import { useDispatch } from 'react-redux';
 
 import Footer from '../Footer/Footer';
@@ -9,27 +9,28 @@ import Navigation from '../Navigation/Navigation';
 import css from './Login.module.css';
 import boy1 from '../../../assets/boy1.png';
 import email from '../../../assets/email.png';
-import googlelogo from '../../../assets/googlelogo.png';
+// import googlelogo from '../../../assets/googlelogo.png';
 
 function Register() {
     const dispatch = useDispatch();
     const history = useHistory();
     const { instrument } = useParams();
 
-    const RegisterUser = async () => {
-        console.log('click')
-        dispatch(await SigninUser(instrument, history));
-        // history.push('/auth/profile');
-    }
+    // const RegisterUser = async () => {
+    //     console.log('click')
+    //     dispatch(await SigninUser(instrument, history));
+    //     // history.push('/auth/profile');
+    // }
 
     const SubmitHandler = async (e) => {
         e.preventDefault();
         let name = e.target.name.value;
         let email = e.target.email.value;
         let password = e.target.password.value;
-        const newUser = { name, email, password, instrument };
+        let contact = e.target.contact.value;
+        const newUser = { name, email, password, contact, instrument };
 
-        dispatch(await RegisterNewUser(newUser));
+        await dispatch(await RegisterNewUser(newUser, history));
         history.push('/auth/profile');
     }
 
@@ -44,7 +45,6 @@ function Register() {
                     <img src={boy1} alt={boy1} />
                 </div>
 
-
                 <div className={css.b_login_content}>
                     <div>
                         <h1>
@@ -54,19 +54,19 @@ function Register() {
                             </span>
                         </h1>
 
-                        <button onClick={RegisterUser} >
+                        {/* <button onClick={RegisterUser} >
                             <img height={30} src={googlelogo} alt={googlelogo} />
                             &nbsp;&nbsp;
                             <span>
                                 Sign in with Google
                             </span>
-                        </button>
+                        </button> */}
 
                         <div className=" d-flex w-100 justify-content-between align-items-center">
-                            <hr style={{ width: '45%' }} className="bg-dark text-dark" />
-                            <span className="text-dark">OR</span>
-                            <hr style={{ width: '45%' }} className="bg-dark text-dark" />
-                        </div>
+                            <hr style={{ width: '100%' }} className="bg-dark text-dark" />
+                            {/* <span className="text-dark">OR</span> */}
+                            {/* <hr style={{ width: '45%' }} className="bg-dark text-dark" /> */}
+                        </div> 
 
                         <form onSubmit={SubmitHandler}>
 
@@ -86,6 +86,15 @@ function Register() {
                                     name="email"
                                     className="form-control"
                                     placeholder="EM@IL" />
+                            </div>
+
+                            <div className="mb-3">
+                                <input
+                                    required
+                                    type="number"
+                                    name="contact"
+                                    className="form-control"
+                                    placeholder="Contact" />
                             </div>
 
                             <div className="mb-3">

@@ -1,17 +1,17 @@
 import { SIGN_FAIL, SIGN_IN_SUCCESS, SIGN_OUT } from "../ActionTypes";
 import {
     firebase,
-    provider,
+    // provider,
     firestore,
 } from "../../helpers/FirebaseConfiguration";
 
 export const UpdateUser = (UpdatedUser) => (dispatch) => {
-    const { displayName, email, instrument, phoneNumber, photoURL, timestamp } =
+    const { displayName, email, contact, instrument, phoneNumber, photoURL, timestamp } =
     UpdatedUser;
     firestore
         .collection("users")
         .doc(UpdatedUser._id)
-        .set({ displayName, email, instrument, phoneNumber, photoURL, timestamp });
+        .set({ displayName, email, contact, instrument, phoneNumber, photoURL, timestamp });
         dispatch(Getsingleuser(UpdatedUser._id));
 };
 
@@ -43,64 +43,64 @@ export const RestoreSession = () => (dispatch) => {
 //         });
 // }
 
-export const SigninUser = (instrument, history) => (dispatch) => {
-    firebase
-        .auth()
-        .signInWithPopup(provider)
-        .then((result) => {
-            // if (result.user.emailVerified) {
-            const { displayName, photoURL, email, phoneNumber } = result.user;
-            const date = new Date();
-            const timestamp = `${date.toLocaleDateString()} ${date.toLocaleTimeString()}`;
-            const userDetails = {
-                displayName,
-                photoURL,
-                email,
-                phoneNumber,
-                instrument,
-                timestamp,
-            };
+// export const SigninUser = (instrument, history) => (dispatch) => {
+//     firebase
+//         .auth()
+//         .signInWithPopup(provider)
+//         .then((result) => {
+//             // if (result.user.emailVerified) {
+//             const { displayName, photoURL, email, phoneNumber } = result.user;
+//             const date = new Date();
+//             const timestamp = `${date.toLocaleDateString()} ${date.toLocaleTimeString()}`;
+//             const userDetails = {
+//                 displayName,
+//                 photoURL,
+//                 email,
+//                 phoneNumber,
+//                 instrument,
+//                 timestamp,
+//             };
 
-            firestore
-                .collection("users")
-                .get()
-                .then((querySnapshot) => {
-                    let regusers = querySnapshot.docs.map((doc) => ({
-                        ...doc.data(),
-                        _id: doc.id,
-                    }));
-                    let curruser = regusers.filter((u) => u.email === email);
-                    if (curruser.length === 0) {
-                        firestore
-                            .collection("users")
-                            .add(userDetails)
-                            .then(() => {
-                                console.log("User Successfully Registered!");
-                            })
-                            .catch((error) => {
-                                dispatch(Error(error));
-                            });
-                    } else {
-                        console.log("User Already Exists!");
-                    }
-                });
-                dispatch(SigninSuccess(userDetails));
-                history.push('/auth/profile');
-            // } else {
-            // EmailVerification();
-            // }
-        })
-        .catch((error) => {
-            dispatch(Error(error));
-        });
-};
+//             firestore
+//                 .collection("users")
+//                 .get()
+//                 .then((querySnapshot) => {
+//                     let regusers = querySnapshot.docs.map((doc) => ({
+//                         ...doc.data(),
+//                         _id: doc.id,
+//                     }));
+//                     let curruser = regusers.filter((u) => u.email === email);
+//                     if (curruser.length === 0) {
+//                         firestore
+//                             .collection("users")
+//                             .add(userDetails)
+//                             .then(() => {
+//                                 console.log("User Successfully Registered!");
+//                             })
+//                             .catch((error) => {
+//                                 dispatch(Error(error));
+//                             });
+//                     } else {
+//                         console.log("User Already Exists!");
+//                     }
+//                 });
+//                 dispatch(SigninSuccess(userDetails));
+//                 history.push('/auth/profile');
+//             // } else {
+//             // EmailVerification();
+//             // }
+//         })
+//         .catch((error) => {
+//             dispatch(Error(error));
+//         });
+// };
 
-export const RegisterNewUser = (newUser) => (dispatch) => {
-    const { name, email, password, instrument } = newUser;
-    firebase
+export const RegisterNewUser = (newUser) => async (dispatch) => {
+    const { name, email, password, contact, instrument } = newUser;
+    await firebase
         .auth()
         .createUserWithEmailAndPassword(email, password)
-        .then((userCredential) => {
+        .then(async (userCredential) => {
             // Signed in
             var user = userCredential.user;
             const { photoURL, email, phoneNumber } = user;
@@ -110,20 +110,21 @@ export const RegisterNewUser = (newUser) => (dispatch) => {
                 displayName: name,
                 photoURL,
                 email,
+                contact,
                 phoneNumber,
                 instrument,
                 timestamp,
             };
 
-            firestore
+            await firestore
                 .collection("users")
                 .get()
-                .then((querySnapshot) => {
-                    let regusers = querySnapshot.docs.map((doc) => ({
+                .then(async (querySnapshot) => {
+                    let regusers = await querySnapshot.docs.map((doc) => ({
                         ...doc.data(),
                         _id: doc.id,
                     }));
-                    let curruser = regusers.filter((u) => u.email === email);
+                    let curruser = await regusers.filter((u) => u.email === email);
                     if (curruser.length === 0) {
                         firestore
                             .collection("users")
@@ -138,35 +139,37 @@ export const RegisterNewUser = (newUser) => (dispatch) => {
                         console.log("User Already Exists!");
                     }
                 });
-            dispatch(SigninSuccess(userDetails));
+            dispatch(await SigninSuccess(userDetails));
         })
         .catch((error) => {
+            alert(error.message)
             dispatch(Error(error));
         });
 };
 
-export const SigninUserEmail = (details, history) => (dispatch) => {
+export const SigninUserEmail = (details) => async (dispatch) => {
     const { email, password } = details;
-    firebase
+    await firebase
         .auth()
         .signInWithEmailAndPassword(email, password)
-        .then((userCredential) => {
+        .then(async (userCredential) => {
             // var user = userCredential.user;
-            firestore
+            await firestore
                 .collection("users")
                 .get()
-                .then((querySnapshot) => {
+                .then(async (querySnapshot) => {
                     let regusers = querySnapshot.docs.map((doc) => ({
                         ...doc.data(),
                         _id: doc.id,
                     }));
-                    let curruser = regusers.filter((u) => u.email === email)[0];
-                    history.push("/auth/profile");
-                    dispatch(SigninSuccess(curruser));
+                    let curruser =  await regusers.filter((u) => u.email === email)[0];
+                    dispatch(await SigninSuccess(curruser));
                 });
         })
         .catch((error) => {
+            alert(error.message)
             dispatch(Error(error));
+
         });
 };
 
