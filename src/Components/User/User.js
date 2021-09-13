@@ -18,7 +18,7 @@ import Feedback from "./Feedback/Feedback";
 import TnC from "./TnC/TnC";
 
 function User() {
-  const { isUser, error } = useSelector((state) => state.userReducer);
+  const { isUser, error, user } = useSelector((state) => state.userReducer);
   // console.log(isUser)
 
   const AdminPath = () => {
@@ -39,8 +39,8 @@ function User() {
 
       <Switch>
         {error ? <Route render={() => <h1>Something Went Wrong</h1>} /> : ""}
-        {isUser ? <Redirect from="/login" to="/auth/profile" /> : ""}
-        {isUser ? <Redirect from="/register" to="/auth/profile" /> : ""}
+        {isUser && user ? <Redirect from="/login" to="/auth/profile" /> : ""}
+        {isUser && user ? <Redirect from="/register" to="/auth/profile" /> : ""}
         <Route exact path="/auth/profile" component={Profile} />
         <Route exact path="/about" component={About} />
         <Route exact path="/login" component={Login} />

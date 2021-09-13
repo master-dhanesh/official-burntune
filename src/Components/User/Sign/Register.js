@@ -31,7 +31,11 @@ function Register() {
         const newUser = { name, email, password, contact, instrument };
 
         await dispatch(await RegisterNewUser(newUser, history));
-        history.push('/auth/profile');
+
+        setTimeout(() => {
+            history.push('/auth/profile');
+        }, 5000);
+
     }
 
     return (
@@ -91,8 +95,9 @@ function Register() {
                             <div className="mb-3">
                                 <input
                                     required
-                                    type="number"
+                                    type="text"
                                     name="contact"
+                                    pattern="[1-9]{1}[0-9]{9}"
                                     className="form-control"
                                     placeholder="Contact" />
                             </div>

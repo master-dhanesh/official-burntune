@@ -27,7 +27,7 @@ function Navigation(props) {
             <img style={{ height: "3em" }} src={burntune} alt={burntune} />
           </Link>
           <div className={css.b_navelements}>
-            {isUser ? (
+            {isUser && user ? (
               <>
                 <div className="dropdown ">
                   <button

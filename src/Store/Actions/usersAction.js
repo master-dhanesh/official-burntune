@@ -6,12 +6,12 @@ import {
 } from "../../helpers/FirebaseConfiguration";
 
 export const UpdateUser = (UpdatedUser) => (dispatch) => {
-    const { displayName, email, contact, instrument, phoneNumber, photoURL, timestamp } =
+    const { displayName, email, instrument, phoneNumber, photoURL, timestamp } =
     UpdatedUser;
     firestore
         .collection("users")
         .doc(UpdatedUser._id)
-        .set({ displayName, email, contact, instrument, phoneNumber, photoURL, timestamp });
+        .set({ displayName, email, instrument, phoneNumber, photoURL, timestamp });
         dispatch(Getsingleuser(UpdatedUser._id));
 };
 
@@ -110,8 +110,7 @@ export const RegisterNewUser = (newUser) => async (dispatch) => {
                 displayName: name,
                 photoURL,
                 email,
-                contact,
-                phoneNumber,
+                phoneNumber: contact,
                 instrument,
                 timestamp,
             };
@@ -120,16 +119,17 @@ export const RegisterNewUser = (newUser) => async (dispatch) => {
                 .collection("users")
                 .get()
                 .then(async (querySnapshot) => {
-                    let regusers = await querySnapshot.docs.map((doc) => ({
+                    let regusers = querySnapshot.docs.map((doc) => ({
                         ...doc.data(),
                         _id: doc.id,
                     }));
                     let curruser = await regusers.filter((u) => u.email === email);
                     if (curruser.length === 0) {
-                        firestore
+                        await firestore
                             .collection("users")
                             .add(userDetails)
-                            .then(() => {
+                            .then(async () => {
+                                dispatch(await SigninSuccess(userDetails));
                                 console.log("User Successfully Registered!");
                             })
                             .catch((error) => {
@@ -139,7 +139,7 @@ export const RegisterNewUser = (newUser) => async (dispatch) => {
                         console.log("User Already Exists!");
                     }
                 });
-            dispatch(await SigninSuccess(userDetails));
+            // dispatch(await SigninSuccess(userDetails));
         })
         .catch((error) => {
             alert(error.message)
